@@ -676,6 +676,7 @@ header .logo {
 }
 
 header .logo a {
+	margin-left: 2.5rem;
 	display: block;
 	/* margin: 0;
 	padding: 20px; */
@@ -725,6 +726,7 @@ header .header-social li a:hover {
 		display: none;
 	}
 
+
 }
 
 @media only screen and (max-width:768px) {
@@ -740,6 +742,7 @@ header .header-social li a:hover {
 	header .logo {
 		margin-left: -30px;
 	}
+
 
 }
 
@@ -1161,10 +1164,18 @@ ul#nav li.current a:after {
 		font: 16px/1.9 "merriweather-light", sans-serif;
 		width: 85%;
 	}
-
+	#nav .current:after{
+		width: 100%;
+		left: 0;
+	}
 }
 
 @media only screen and (max-width:600px) {
+
+	#nav .current:after{
+		width: 100%;
+		left: 0;
+	}
 	.hero-content {
 		padding-bottom: 72px;
 	}
@@ -2597,6 +2608,9 @@ footer .social-links li:first-child {
 	footer .social-links li {
 		margin-left: 14px;
 	}
+	#element{
+		display: 2rem;
+	}
 
 }
 
@@ -2715,6 +2729,7 @@ footer .social-links li:first-child {
   }
   
   #services .card .front-content {
+	text-align: center;
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -3000,9 +3015,11 @@ background: linear-gradient(257deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100
   
   .highlight-text::before {
 	left: -60px;
+	display: none;
   }
   
   .highlight-text::after {
+	display: none;
 	right: -60px;
   }
   /* end header animation and style  */
