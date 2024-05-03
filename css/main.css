@@ -3019,11 +3019,7 @@ background: linear-gradient(257deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100
   }
   
   .highlight-text::after {
-<<<<<<< HEAD
-	display: none;
-=======
 	 display: none;
->>>>>>> 60561b8215df16f7398331fa3794a6064b3e0f5e
 	right: -60px;
   }
   /* end header animation and style  */
