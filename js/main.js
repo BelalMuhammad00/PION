@@ -193,22 +193,6 @@ particlesJS.load('particles-js', 'particles.json', function() {
 
 
   	/*----------------------------------------------------*/
-  	/* Smooth Scrolling
-  	------------------------------------------------------ */
-  	// $('.smoothscroll').on('click', function (e) {
-	 	
-	//  	e.preventDefault();
-
-   	// var target = this.hash,
-    // 	$target = $(target);
-
-    // 	$('html, body').stop().animate({
-    //    	'scrollTop': $target.offset().top
-    //   }, 800, 'swing', function () {
-    //   	window.location.hash = target;
-    //   });
-
-  	// });  
   
 
    /*----------------------------------------------------*/
@@ -242,52 +226,87 @@ particlesJS.load('particles-js', 'particles.json', function() {
 	// ------------------------------------------------------*/
 
 	/* local validation */
-	// $('#contactForm').validate({
+	
+		emailjs.init({
+			publicKey: 'Vzk3M-TaYLFhb9m93',
+		  });
+	
+	
+	document.getElementById('contactForm').addEventListener('submit', function(event) {
+		var valid = true;
+		var templateId ="template_kkt7lud" ;
 
-	// 	/* submit via ajax */
-	// 	submitHandler: function(form) {
+		var service = "service_zpkmr2o";
+		const form1 = this;
+		// Name validation
+		var name = document.getElementById('Name');
+		var nameError = document.getElementById('nameError');
+		if (name.value.length < 2) {
+			valid = false;
+			nameError.classList.remove('hidden');
+		} else {
+			nameError.classList.add('hidden');
+		}
 
-	// 		var sLoader = $('#submit-loader');
+		// Email validation
+		var email = document.getElementById('email');
+		var emailError = document.getElementById('emailError');
+		if (!email.validity.valid) {
+			valid = false;
+			emailError.classList.remove('hidden');
+		} else {
+			emailError.classList.add('hidden');
+		}
 
-	// 		$.ajax({      	
+		// Phone validation
+		var phone = document.getElementById('phone');
+		var phoneError = document.getElementById('phoneError');
+		var phonePattern = /^(010|011|012|015)\d{8}$/;
+		if (!phone.value && !phonePattern.test(phone.value)) {
+			valid = false;
+			phoneError.classList.remove('hidden');
+		} else {
+			phoneError.classList.add('hidden');
+		}
 
-	// 	      type: "POST",
-	// 	      url: "inc/sendEmail.php",
-	// 	      data: $(form).serialize(),
-	// 	      beforeSend: function() { 
+		// Message validation
+		var message = document.getElementById('message');
+		var messageError = document.getElementById('messageError');
+		if (message.value.trim() === "") {
+			valid = false;
+			messageError.classList.remove('hidden');
+		} else {
+			messageError.classList.add('hidden');
+		}
 
-	// 	      	sLoader.fadeIn(); 
+		
+		
+		// Prevent form submission if validation fails
+		if (valid) {
+			emailjs.sendForm(service, templateId, this)
+			.then(() => {
+				console.log('SUCCESS!');
+			}, (error) => {
+				console.log('FAILED...', error);
+			});
+		
+		} else {
+			event.preventDefault();
+		
+			document.getElementById('submit-loader').classList.remove('hidden');
+		
 
-	// 	      },
-	// 	      success: function(msg) {
+	
+		}
+	
+	
+	
+	
 
-	//             // Message was sent
-	//             if (msg == 'OK') {
-	//             	sLoader.fadeOut(); 
-	//                $('#message-warning').hide();
-	//                $('#contactForm').fadeOut();
-	//                $('#message-success').fadeIn();   
-	//             }
-	//             // There was an error
-	//             else {
-	//             	sLoader.fadeOut(); 
-	//                $('#message-warning').html(msg);
-	// 	            $('#message-warning').fadeIn();
-	//             }
+	
 
-	// 	      },
-	// 	      error: function() {
 
-	// 	      	sLoader.fadeOut(); 
-	// 	      	$('#message-warning').html("Something went wrong. Please try again.");
-	// 	         $('#message-warning').fadeIn();
-
-	// 	      }
-
-	//       });     		
-  	// 	}
-
-	// });
+	}); 
 
 // animate on scroll for headers
 

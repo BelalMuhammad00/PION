@@ -1317,8 +1317,9 @@ ul#nav li.current a:after {
 }
 
 #hero #more a:hover {
-	background: var(--bs-pink);
-	color: white;
+	color: #FFFFFF;
+    background: rgb(225 11 222);
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 0px #f09, 0 0 0px #f09, 0 0 0px #f09, 0 0 0px #f09, 0 0 0px #f09;
 }
 
 #hero #more a i {
@@ -2238,11 +2239,16 @@ ul#nav li.current a:after {
 /** 
 /* 12. =contact
 /* =================================================================== */
-
+.error {
+	color: red;
+}
+.hidden {
+	display: none;
+}
 #contact {
 	background: #12151B;
-	padding-top: 120px;
-	padding-bottom: 138px;
+	/* padding-top: 120px;
+	padding-bottom: 138px; */
 	overflow: hidden;
 	border-bottom: 1px solid #15191d;  
 }
@@ -2897,9 +2903,9 @@ background: linear-gradient(257deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100
   }
   
   #OurTeam  .card .bottom .content .about-me {
-	line-height: 1.3;
+	line-height: 2;
 	display: block;
-	font-size: 1.5rem;
+	font-size: 2rem;
 	color: white;
 	/* margin-top: 1rem; */
   }
